@@ -1,1 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Propozycja</title>
+  <style>
+    /* Podstawowy reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: url("https://i.giphy.com/l0K4kWJir91VEoa1W.webp") no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      min-height: 100vh;
+    }
+    #content {
+      position: relative;
+      z-index: 3;
+      padding-top: 100px;
+    }
+    h1 {
+      font-size: 40px;
+      text-shadow: 1px 1px 5px black;
+      margin-bottom: 20px;
+    }
+    .buttons {
+      margin-top: 20px;
+    }
+    button {
+      font-size: 20px;
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+    }
+  </style>
+  <script>
+    function handleResponse(response) {
+      // Po kliknięciu zmieniamy tło na czarne
+      document.body.style.backgroundImage = "none";
+      document.body.style.backgroundColor = "black";
+      
+      const contentDiv = document.getElementById("content");
+      if(response === 'yes') {
+        // Obrazek z Ryanem Goslingiem – przesunięty wyżej (mniejszy margines-top)
+        contentDiv.innerHTML = 
+          '<img src="https://m.media-amazon.com/images/M/MV5BMTQzMjkwNTQ2OF5BMl5BanBnXkFtZTgwNTQ4MTQ4MTE@._V1_FMjpg_UX1000_.jpg" alt="Wesoły Ryan Gosling" style="display: block; margin: 20px auto 0 auto; max-width: 90%; height: auto;">';
+      } else {
+        // Obrazek z "smutnym" Goslingiem – pozostaje ze standardowym marginesem
+        contentDiv.innerHTML = 
+          '<img src="https://c.tenor.com/12eiAATLXCMAAAAd/gosling-sad.gif" alt="Smutny Ryan Gosling" style="display: block; margin: 50px auto 0 auto; max-width: 90%; height: auto;">';
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="content">
+    <h1>Wyjdziesz za mnie?</h1>
+    <div class="buttons">
+      <button onclick="handleResponse('yes')">Tak</button>
+      <button onclick="handleResponse('no')">Nie</button>
+    </div>
+  </div>
+</body>
+</html>
 
